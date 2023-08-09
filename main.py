@@ -27,6 +27,13 @@ footer {visibility: hidden;}
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
+html_code = """<script>
+document.getElementsByClassName("reportview-container")[0].removeChild(document.getElementById("footer"));
+</script>"""
+
+st.markdown(html_code, unsafe_allow_html=True)
+
+
 # Set the database connection details
 host = '3.138.116.85'
 database = 'rivero-system-production'
