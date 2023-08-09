@@ -17,6 +17,7 @@ def make_xlsreturn(df,name):
     return file 
 
 
+st.set_page_config(page_title="rvgDownloadApp")
 
 hide_streamlit_style = """
 <style>
