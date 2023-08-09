@@ -17,6 +17,16 @@ def make_xlsreturn(df,name):
     return file 
 
 
+
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style>
+
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 # Set the database connection details
 host = '3.138.116.85'
 database = 'rivero-system-production'
@@ -56,10 +66,12 @@ contract_status=[
 status_contract_user=st.multiselect('Status',contract_status)
 action=st.button('Search')
 
-if name_result == '' and action == True:
-    name_result=input("give me a name to response file 'namefile'    ")
+
+if 'ALL' in status_contract_user:
+    status_contract_user.pop(0)
 else:
-    action = False
+    pass 
+
 
 def conexion_():
     connection = mysql.connector.connect(
